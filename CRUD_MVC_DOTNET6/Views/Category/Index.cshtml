@@ -3,21 +3,32 @@
 @{
     ViewData["Title"] = "Index";
 }
+<html>
 
 <h1>Category Master</h1>
 
-<table>
-    <tr>
-        <td>
-            <a asp-controller="Category" asp-action="Create">Create New Category</a>
-        </td>
-    </tr>
-</table>
 
-<table style="width:500px;" border=1>
+<h6> <a asp-controller="Category" asp-action="Create">Create New Category</a> </h6>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #DDD;
+}
+
+tr:hover {background-color: #D6EEEE;}
+</style>
+</head>
+<table style="width:500px;">
     <tr>
-        <td style="width:200px;"> Category Name </td>
-        <td style="width:200px;"> Display Order </td>
+        <th style="width:100px;"> Category Name </th>
+        <th style="width:100px;"> Display Order </th>
         <td></td>
     </tr>
     @foreach (var obj in Model)
@@ -32,4 +43,5 @@
         </tr>
     }
 </table>
-
+</body>
+</html>
