@@ -5,43 +5,45 @@
 }
 <html>
 
-<h1>Category Master</h1>
+    <h1>Category Master</h1>
 
 
-<h6> <a asp-controller="Category" asp-action="Create">Create New Category</a> </h6>
-<head>
-<style>
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
+    <h6> <a asp-controller="Category" asp-action="Create">Create New Category</a> </h6>
 
-th, td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #DDD;
-}
+    <head>
+            <style>
+                    table {
+                        border-collapse: collapse;
+                        width: 100%;
+                    }
 
-tr:hover {background-color: #D6EEEE;}
-</style>
-</head>
-<table style="width:500px;">
-    <tr>
-        <th style="width:100px;"> Category Name </th>
-        <th style="width:100px;"> Display Order </th>
-        <td></td>
-    </tr>
-    @foreach (var obj in Model)
-    {
-         <tr>
-            <td style="width:200px;">@obj.Name </td>
-            <td style="width:200px;">@obj.DisplayOrder </td>
-            <td>
-                <a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.Id">Edit</a>
-                <a asp-controller="Category" asp-action="Delete" asp-route-id="@obj.Id">Delete</a>
-            </td>
-        </tr>
-    }
-</table>
+                    th, td {
+                        padding: 8px;
+                        text-align: left;
+                        border-bottom: 1px solid #DDD;
+                    }
+
+                    tr:hover {background-color: #D6EEEE;}
+            </style>
+    </head>
+<body>
+        <table style="width:500px;">
+            <tr>
+                <th style="width:100px;"> Category Name </th>
+                <th style="width:100px;"> Display Order </th>
+                <td></td>
+            </tr>
+            @foreach (var obj in Model)
+            {
+                 <tr>
+                    <td style="width:200px;">@obj.Name </td>
+                    <td style="width:200px;">@obj.DisplayOrder </td>
+                    <td>
+                        <a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.Id">Edit</a>
+                        <a asp-controller="Category" asp-action="Delete" asp-route-id="@obj.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </table>
 </body>
 </html>
