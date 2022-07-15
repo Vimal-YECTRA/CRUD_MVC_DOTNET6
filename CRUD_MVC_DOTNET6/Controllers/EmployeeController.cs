@@ -4,17 +4,17 @@ using CRUD_MVC_DOTNET6.Data;
 
 namespace CRUD_MVC_DOTNET6.Controllers
 {
-    public class CategoryController : Controller
+    public class EmployeeController : Controller
     {
         private readonly ApplicationDbContext _db;
-        public CategoryController(ApplicationDbContext db)
+        public EmployeeController(ApplicationDbContext db)
         {
              _db = db;
         }
         public IActionResult Index()
         {
-            IEnumerable<Category> objCategoryList = _db.Categories;
-            return View(objCategoryList);  
+            IEnumerable<Employee> objEmployeeList = _db.Employees;
+            return View(objEmployeeList);  
         }
         public IActionResult Create()
         {
@@ -25,15 +25,15 @@ namespace CRUD_MVC_DOTNET6.Controllers
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Category category)
+        public IActionResult Create(Employee obj)
         {
             if(ModelState.IsValid)
             {
-                _db.Categories.Add(category);
+                _db.Employees.Add(obj);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(category);
+            return View(obj);
         }
 
         public IActionResult Edit(int? id)
@@ -42,28 +42,27 @@ namespace CRUD_MVC_DOTNET6.Controllers
             {
                 return NotFound();  
             }
-            var categoryFromDb = _db.Categories.Find(id);
+            var employeeFromDb = _db.Employees.Find(id);
 
-            if(categoryFromDb == null)
+            if(employeeFromDb == null)
             {
                 return NotFound();
             }
 
-            return View(categoryFromDb);  
+            return View(employeeFromDb);  
         }
-
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Category category)
+        public IActionResult Edit(Employee obj)
         {
             if (ModelState.IsValid)
             {
-                _db.Categories.Update(category);
+                _db.Employees.Update(obj);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(category);
+            return View(obj);
         }
         public IActionResult Delete(int? id)
         {
@@ -71,28 +70,28 @@ namespace CRUD_MVC_DOTNET6.Controllers
             {
                 return NotFound();
             }
-            var categoryFromDb = _db.Categories.Find(id);
+            var eployeeFromDb = _db.Employees.Find(id);
 
-            if (categoryFromDb == null)
+            if (eployeeFromDb == null)
             {
                 return NotFound();
             }
 
-            return View(categoryFromDb);
+            return View(eployeeFromDb);
         }
 
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(Category category)
+        public IActionResult Delete(Employee obj)
         {
             if (ModelState.IsValid)
             {
-                _db.Categories.Remove(category);
+                _db.Employees.Remove(obj);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(category);
+            return View(obj);
         }
     }
 }

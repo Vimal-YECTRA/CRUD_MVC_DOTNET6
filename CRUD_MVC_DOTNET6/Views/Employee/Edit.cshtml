@@ -1,0 +1,56 @@
+﻿@model Employee
+
+<form method="post" asp-action="Edit">
+    <table>
+        <tr>
+           <td>
+            <label asp-for="Name"></label>
+           </td>
+           <td>
+            <input asp-for="Name" class="form-control"/>
+            <span asp-validation-for="Name" class=text-danger></span>
+           </td>
+        </tr>
+        <tr>
+           <td>
+            <label asp-for="CompanyName "></label>
+           </td>
+           <td>
+            <input asp-for="CompanyName " class="form-control"/>
+            <span asp-validation-for="CompanyName" class=text-danger></span>
+           </td>
+        </tr>
+        <tr>
+           <td>
+            <label asp-for="EmployeeId "></label>
+           </td>
+           <td>
+            <input asp-for="EmployeeId " class="form-control"/>
+            <span asp-validation-for="EmployeeId" class=text-danger></span>
+           </td>
+        </tr>
+        <tr>
+           <td>
+            <label asp-for="Experience "></label>
+           </td>
+           <td>
+            <input asp-for="Experience " class="form-control"/>
+            <span asp-validation-for="Experience" class=text-danger></span>
+           </td>
+        </tr>
+
+        <tr>
+            <td>
+                <button type ="submit">Update</button>
+                <a asp-controller="Employee" asp-action="Index">Back to list</a>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div asp-validation-summary="All"></div>
+            </td>
+        </tr>
+    </table>
+</form>
+

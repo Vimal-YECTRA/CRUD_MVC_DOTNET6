@@ -1,0 +1,89 @@
+﻿@model EntireName
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<html>
+
+@using (Html.BeginForm("Index", "EntireName", FormMethod.Post))
+{
+    <table>
+
+        <tr>
+            <td>
+                <label asp-for="FirstNumber"></label>
+            </td>
+            <td>
+                <input asp-for="@Model.FirstNumber" class="form-control" />
+                <span asp-validation-for="FirstNumber" class=text-danger></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label asp-for="SecondNumber"></label>
+            </td>
+            <td>
+                <input asp-for="@Model.SecondNumber" class="form-control" />
+                <span asp-validation-for="SecondNumber" class=text-danger></span>
+            </td>
+        </tr>
+        <tr>
+
+
+        <tr>
+            <td>
+                <label asp-for="Operation"></label>
+            </td>
+            <td>
+                <input asp-for="@Model.Operation" class="form-control" />
+                <span asp-validation-for="Operation" class=text-danger></span>
+            </td>
+        </tr>
+        <tr>
+
+
+
+            <td>
+
+                <input asp-for="@Model.Operations" type="radio" name="@Model.Operations" value="Add"/>
+                <label asp-for="@Model.Operations">Add</label>
+
+                <input asp-for="@Model.Operations" type="radio" name="@Model.Operations" value="Sub"/>
+                <label asp-for="@Model.Operations">Sub</label>
+
+                <input asp-for="@Model.Operations" type="radio" name="@Model.Operations" value="Mul"/>
+                <label asp-for="@Model.Operations">Mul</label>
+
+                <input asp-for="@Model.Operations" type="radio" name="@Model.Operations" value="Div"/>
+                <label asp-for="@Model.Operations">Div</label>
+            </td>
+        </tr>
+    </table>
+
+
+    <p>
+        <button type="submit">Get Result</button>
+    </p>
+}
+<table>
+    <tr>
+        <td>
+            <label asp-for="Result"></label>
+        </td>
+        <td>
+            <input asp-for="@Model.Result" class="form-control" />
+            <span asp-validation-for="Result" class=text-danger></span>
+        </td>
+    </tr>
+</table>
+
+@*        <tr>
+            <td>
+                <button type ="submit">FullName</button>
+                <a asp-controller="@Model.FullName" asp-action="Index">To Get FullName</a>
+            </td>
+        </tr>*@
+
+</html>

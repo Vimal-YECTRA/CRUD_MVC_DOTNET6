@@ -7,8 +7,9 @@ namespace CRUD_MVC_DOTNET6.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        public string Name { get; set; } = null!;     
-        public int DisplayOrder { get; set; }
+        public string Name { get; set; }
+        [Required]
+        public int? DisplayOrder { get; set; }
         public DateTime CreatedDateTime { get; set; } = DateTime.Now;  
     }
 }

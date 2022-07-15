@@ -10,5 +10,6 @@ namespace CRUD_MVC_DOTNET6.Data
 
         }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Employee> Employees { get; set; }
     }
 }
